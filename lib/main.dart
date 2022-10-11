@@ -12,8 +12,8 @@ void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  SharedPreferences _pref = await SharedPreferences.getInstance();
-  final isTheme = _pref.getBool('theme') ?? false;
+  SharedPreferences _pref = await SharedPreferences.getInstance(); /// Aşağıdakə edit lərə baxsaq bunlara ehtiyyac yoxdur
+  final isTheme = _pref.getBool('theme') ?? false; /// Aşağıdakə edit lərə baxsaq bunlara ehtiyyac yoxdur
 
   await ItemData().creatSharedObject();
 
@@ -24,7 +24,7 @@ void main() async {
           create: (BuildContext context) => ItemData()),
       
       ChangeNotifierProvider<ThemeSettings>(
-              create: (BuildContext context)=> ThemeSettings(isTheme)),
+              create: (BuildContext context)=> ThemeSettings(isTheme)), /// Temanın data sını burda yollamağa artıq ehtiyyac olmayacaq (ThemeSettings də etdiyim edit ə bax)
       
     ],
     child:  MyApp(isTheme: isTheme),
@@ -33,8 +33,8 @@ void main() async {
 
 class MyApp extends StatelessWidget {
 
-  bool isTheme;
-   MyApp({Key? key,required this.isTheme}) : super(key: key);
+  bool isTheme; /// Lazımsızdır deyə construstor dan çıxara bilərsən
+   MyApp({Key? key,required this.isTheme/*silmək olar*/}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +63,7 @@ class SplashWidget extends StatelessWidget {
       ),
       backgroundColor: Colors.grey.shade400,
       showLoader: true,
-      loadingText: const Text("Loading..."),
+      loadingText: const Text("Loading..."), /// Bunlar TextHelper() class ında tutula bilər.
       navigator: HomeScreen(),
       durationInSeconds: 2,
     );
