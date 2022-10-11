@@ -3,6 +3,21 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// Bu mənim işlətdiyim Notifier class'ıdı. Temanın dark olub olmadığını onun içərisində çəkirəm. StorageHelper() bu da mənim yaddaşla bağlı köməkçi class'ımdır. SharedPreference onun içərisində tutula bilər.
+
+// class ThemeNotifier extends ChangeNotifier {
+//   bool darkMode = StorageHelper().themeIsDark(); /// Temanın dark olub olmadığı
+
+//   bool get isDarkMode => darkMode;
+
+//   Future<void> change() async {
+//     darkMode = !darkMode;
+//     await StorageHelper().setThemeMode(darkMode);
+
+//     notifyListeners();
+//   }
+// }
+
 class ThemeSettings extends ChangeNotifier{
   ThemeData _currentTheme = greenTheme;
   bool _currentCheck = false;
@@ -43,6 +58,10 @@ class ThemeSettings extends ChangeNotifier{
     notifyListeners();
   }
 }
+
+
+
+/// Bunlar da ThemeHelper() deyə class da tutula bilər
   ThemeData greenTheme = ThemeData(
         primaryColor: Colors.green,
         scaffoldBackgroundColor: Colors.green, 
